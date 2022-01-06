@@ -59,10 +59,6 @@ export function toggleTeaStatus(object) {
 export function toggleListItemCompleted(array, index) {
   
   const object = array[index]
-  const invertCompleted = object.completed? false : true;
-
-  return [{...object, completed:invertCompleted}]
-
-
-  return  
+  const invertCompleted = object.completed ? false : true;
+  return [...array.slice(0, index), {...object, completed:invertCompleted}, ...array.slice(index+1)]
 }
